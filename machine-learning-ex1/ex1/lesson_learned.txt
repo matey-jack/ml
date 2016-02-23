@@ -1,0 +1,2 @@
+selbst bei 50 Iterationen merkt man noch den Unterschied von alpha = 0.3 bzw. 1.0
+Letzteres hat den richtigen Wert geliefert, wie der Vergleich mit der Normalform zeigte!
