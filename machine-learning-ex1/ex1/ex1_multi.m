@@ -62,8 +62,14 @@ fprintf('Theta computed from gradient descent: \n');
 fprintf(' %f \n', theta);
 fprintf('\n');
 
+myHouse = [1650, 3]
+price = [1, (myHouse.-mu)./sigma] * theta;
+fprintf(['Predicted price of a 1650 sq-ft, 3 br house ' ...
+         '(using gradient descent):\n $%f\n'], price);
 
 % Plot the convergence graph
+history_cutoff = 48
+J_history = J_history(history_cutoff:end);
 figure;
 plot(1:numel(J_history), J_history, '-b', 'LineWidth', 2);
 xlabel('Number of iterations');
@@ -71,6 +77,7 @@ ylabel('Cost J');
 hold on;
 
 [theta, J_history] = gradientDescentMulti(X, y, zeros(3, 1), 1, num_iters);
+J_history = J_history(history_cutoff:end);
 plot(1:numel(J_history), J_history, '-r', 'LineWidth', 2);
 
 % Display gradient descent's result
@@ -78,7 +85,6 @@ fprintf('Theta computed from gradient descent: \n');
 fprintf(' %f \n', theta);
 fprintf('\n');
 
-myHouse = [1650, 3]
 price = [1, (myHouse.-mu)./sigma] * theta;
 fprintf(['Predicted price of a 1650 sq-ft, 3 br house ' ...
          '(using gradient descent):\n $%f\n'], price);

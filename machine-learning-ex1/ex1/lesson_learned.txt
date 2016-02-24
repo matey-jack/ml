@@ -1,2 +1,4 @@
 selbst bei 50 Iterationen merkt man noch den Unterschied von alpha = 0.3 bzw. 1.0
 Letzteres hat den richtigen Wert geliefert, wie der Vergleich mit der Normalform zeigte!
+
+Weil die Kosten am Anfang so unglaublich hoch sind, sieht es auf der Grafik aus, als ob es schnell konvergieren würde, aber wenn man den Anfang der Kosten-Historie weglässt, sieht man, dass es immer noch ziemlich lange sich angleicht. Man sieht auch, dass das absolute Ergebnis der beiden verschiedenen Alpha-Werte um ein paar kleine Stellen voneinander abweicht...
