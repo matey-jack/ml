@@ -1,0 +1,10 @@
+
+# for using Pandas in Python3 in Ubuntu
+sudo apt-get install python3-pandas python3-pip
+
+# to compile Python packages (when getting them with pip):
+sudo apt-get install build-essential python3-dev
+
+
+
+# It recommends Anaconda, so maybe try that at a later date!
