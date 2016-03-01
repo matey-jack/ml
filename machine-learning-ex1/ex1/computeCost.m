@@ -4,6 +4,6 @@ function J = computeCost(X, y, theta)
 %   parameter for linear regression to fit the data points in X and y
 
 m = length(y); % number of training examples
-J = meansq((X * theta - y))/2;
+J = meansq(X * theta - y)/2;
 
 end
