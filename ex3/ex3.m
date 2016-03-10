@@ -54,6 +54,7 @@ fprintf('Program paused. Press enter to continue.\n');
 
 fprintf('\nTraining One-vs-All Logistic Regression...\n')
 
+warning ("off", "Octave:broadcast");
 lambda = 0.1;
 [all_theta] = oneVsAll(X, y, num_labels, lambda);
 
