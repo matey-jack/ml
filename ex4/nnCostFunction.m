@@ -39,12 +39,38 @@ A3 = sigmoid(A2 * Theta2');
 % size(A3)
 
 % Calculate costs
-Y = linspace(1, 10, 10) == y;
-J = - sum(sum(Y .* log(A3) + (1.-Y) .* log(1 .- A3))) / m;
+Ys = linspace(1, num_labels, num_labels);
+Y = Ys == y;
+J = lambda/2/m * (sum(sum(Theta1(:,2:end) .^ 2)) + sum(sum(Theta2(:,2:end) .^ 2))) ... 
+  - sum(sum(Y .* log(A3) + (1.-Y) .* log(1 .- A3))) / m;
  
-% You need to return the following variables correctly 
+% Back-Propagation 
 Theta1_grad = zeros(size(Theta1));
 Theta2_grad = zeros(size(Theta2));
+
+for t = 1:m
+   % Feedforward again, but just one input at a time.
+   a1 = [1 X(t, :)];
+   % size(a1)
+   z2 = a1 * Theta1';
+   a2 = [1 sigmoid(z2)];
+   % size(a2)
+   a3 = sigmoid(a2 * Theta2');
+   % size(a3)
+   
+   % now run back
+   d3 = a3 - (Ys == y(t));
+   % size(d3)
+   Theta2_grad += d3' * a2;
+   
+   d2 = (Theta2' * d3')(2:end)' .* sigmoidGradient(z2);
+   % size(d2)
+   Theta1_grad += d2' * a1;   
+endfor
+
+Theta2_grad /= m;
+Theta1_grad /= m;
+
 
 % ====================== YOUR CODE HERE ======================
 % Instructions: You should complete the code by working through the
@@ -60,15 +86,6 @@ Theta2_grad = zeros(size(Theta2));
 %         the cost function with respect to Theta1 and Theta2 in Theta1_grad and
 %         Theta2_grad, respectively. After implementing Part 2, you can check
 %         that your implementation is correct by running checkNNGradients
-%
-%         Note: The vector y passed into the function is a vector of labels
-%               containing values from 1..K. You need to map this vector into a 
-%               binary vector of 1's and 0's to be used with the neural network
-%               cost function.
-%
-%         Hint: We recommend implementing backpropagation using a for-loop
-%               over the training examples if you are implementing it for the 
-%               first time.
 %
 % Part 3: Implement regularization with the cost function and gradients.
 %
