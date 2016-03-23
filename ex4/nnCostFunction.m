@@ -68,8 +68,11 @@ for t = 1:m
    Theta1_grad += d2' * a1;   
 endfor
 
-Theta2_grad /= m;
+Theta1_grad += lambda * [zeros(hidden_layer_size,1)   Theta1(:,2:end)];
+Theta2_grad += lambda * [zeros(num_labels,1)  Theta2(:,2:end)];
+
 Theta1_grad /= m;
+Theta2_grad /= m;
 
 
 % ====================== YOUR CODE HERE ======================
