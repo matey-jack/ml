@@ -1,0 +1,2 @@
+scp -i ~/.ssh/jack-office.pem    /data/home/rwill/.ssh/id_matey.jack_rsa admin@ec2-52-50-201-96.eu-west-1.compute.amazonaws.com:.ssh/
+

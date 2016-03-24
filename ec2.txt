@@ -1,0 +1,19 @@
+
+sudo apt-get update
+sudo apt-get install -y git octave
+
+git clone https://github.com/jimeh/git-aware-prompt.git ~/.bash/git-aware-prompt
+export GITAWAREPROMPT=~/.bash/git-aware-prompt
+source "${GITAWAREPROMPT}/main.sh"
+
+PS1='\n\[\e[01;34m\]\w\[\e[00m\] \$ \[\e[1;35m\]'   # fallback if no GITAWAREPROMPT is there
+PS1="\n\[$bldblu\]\w\[$txtrst\] \[$txtcyn\]\$git_branch\[$txtred\]\$git_dirty\[$txtrst\]\$ \[$bldpur\]"
+trap 'echo -ne "\e[0m"' DEBUG
+
+cat > .ssh/config << END
+Host github.com
+  IdentityFile ~/.ssh/id_matey.jack_rsa
+END
+
+git clone git@github.com:matey-jack/ml.git
+
