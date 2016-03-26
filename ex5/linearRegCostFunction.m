@@ -9,7 +9,7 @@ function [J, grad] = linearRegCostFunction(X, y, theta, lambda)
 m = length(y); % number of training examples
 
 % You need to return the following variables correctly 
-J = 0;
+J = meansq(X * theta - y)/2 + sum(theta(2:end) .^ 2)*lambda/m/2;
 grad = zeros(size(theta));
 
 % ====================== YOUR CODE HERE ======================
