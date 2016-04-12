@@ -5,12 +5,15 @@ function [U, S] = pca(X)
 %
 
 % Useful values
-[m, n] = size(X);
+[M, N] = size(X);
 
 % You need to return the following variables correctly.
-U = zeros(n);
-S = zeros(n);
+U = zeros(N);
+S = zeros(N);
 
+COV = X' * X / M;
+
+[U, S, V] = svd(COV);
 % ====================== YOUR CODE HERE ======================
 % Instructions: You should first compute the covariance matrix. Then, you
 %               should use the "svd" function to compute the eigenvectors
@@ -18,14 +21,5 @@ S = zeros(n);
 %
 % Note: When computing the covariance matrix, remember to divide by m (the
 %       number of examples).
-%
-
-
-
-
-
-
-
-% =========================================================================
 
 end
