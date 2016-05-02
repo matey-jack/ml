@@ -1,0 +1,11 @@
+Top recommendations for you:
+Predicting rating 8.5 for movie Schindler's List (1993)
+Predicting rating 8.3 for movie Close Shave, A (1995)
+Predicting rating 8.3 for movie Shawshank Redemption, The (1994)
+Predicting rating 8.3 for movie Good Will Hunting (1997)
+Predicting rating 8.3 for movie Usual Suspects, The (1995)
+Predicting rating 8.2 for movie Casablanca (1942)
+Predicting rating 8.1 for movie Wallace & Gromit: The Best of Aardman Animation (1996)
+Predicting rating 8.1 for movie Wrong Trousers, The (1993)
+Predicting rating 8.1 for movie Silence of the Lambs, The (1991)
+Predicting rating 8.1 for movie Boot, Das (1981)
